@@ -5,28 +5,42 @@ public class Mahasiswa {
     String nama;
     String prodi;
     String kelas;
+    boolean sudahKRS;
 
     public Mahasiswa(String nim, String nama, String prodi, String kelas) {
         this.nim = nim;
         this.nama = nama;
         this.prodi = prodi;
         this.kelas = kelas;
-    }
-
-    public void tampilkanData() {
-        System.out.println("NIM\t: " + nim);
-        System.out.println("Nama\t: " + nama);
-        System.out.println("Prodi\t: " + prodi);
-        System.out.println("Kelas\t: " + kelas);
-        System.out.println("--------------------");
+        this.sudahKRS = false;
     }
 
     public void tampilkanDataSingkat() {
-        System.out.printf("%-5s - %-10s - %-5s - %-5s%n", nim, nama, prodi, kelas);
+        System.out.printf("%-10s - %-20s - %-5s - %-5s (%s)%n",
+                nim, nama, prodi, kelas, sudahKRS ? "Sudah KRS" : "Belum KRS");
     }
 
-    public static void main(String[] args) {
-        Mahasiswa mhs1 = new Mahasiswa("2241720001", "Budi", "TI", "1A");
-        mhs1.tampilkanDataSingkat();
+    public void setSudahKRS(boolean sudahKRS) {
+        this.sudahKRS = sudahKRS;
+    }
+
+    public String getNim() {
+        return nim;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public String getProdi() {
+        return prodi;
+    }
+
+    public String getKelas() {
+        return kelas;
+    }
+
+    public boolean isSudahKRS() {
+        return sudahKRS;
     }
 }
